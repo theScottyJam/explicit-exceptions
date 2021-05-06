@@ -1,0 +1,115 @@
+env:
+  browser: false
+  es2021: true
+  node: true
+  jest/globals: true
+extends: ["eslint:recommended", "plugin:jest/all"]
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: script
+
+rules:
+  semi: ["error", "never", { "beforeStatementContinuationChars": "always" }]
+  strict: ["error"] # require or disallow strict mode directives
+  indent: ["error", 2, { "MemberExpression": 1, "flatTernaryExpressions": true, "offsetTernaryExpressions": true, "SwitchCase": 1 }]
+  quotes: ["error", "single", { "avoidEscape": true }]
+  prefer-const: ["error"]
+
+  no-obj-calls: ["warn"] # disallow calling global object properties as functions -- i.e. don"t use myObj.hasOwnProperty
+  no-unsafe-optional-chaining: ["error", { "disallowArithmeticOperators": true }] # disallow use of optional chaining in contexts where the `undefined` value is not allowed
+  array-callback-return: ["error"] # enforce `return` statements in callbacks of array methods
+  consistent-this: ["error"]	# enforce consistent naming when capturing the current execution context
+  require-atomic-updates: ["warn"] # disallow assignments that can lead to race conditions due to usage of `await` or `yield`
+  no-extra-semi: ["error"]
+  curly: ["error", "multi-line", "consistent"] # enforce consistent brace style for all control statements
+  dot-notation: ["error"]	# enforce dot notation whenever possible
+  eqeqeq: ["error", "always", {"null": "ignore"}] # require the use of `===` and `!==`
+  no-caller: ["error"] # disallow the use of `arguments.caller` or `arguments.callee`
+  no-extend-native: ["error"] # disallow extending native types
+  no-floating-decimal: ["error"] # disallow leading or trailing decimal points in numeric literals
+  no-implicit-coercion: ["error", { "boolean": true, "number": true, "allow": ["!!"] }] # disallow shorthand type conversions
+  no-implicit-globals: ["error", {"lexicalBindings": true}] # disallow declarations in the global scope
+  no-implied-eval: ["error"] # disallow the use of `eval()`-like methods
+  no-labels: ["error"] # disallow labeled statements
+  no-loop-func: ["error"] # disallow function declarations that contain unsafe references inside loop statements
+  no-multi-spaces: ["error"] # disallow multiple spaces
+  no-new-wrappers: ["error"] # disallow `new` operators with the `String`, `Number`, and `Boolean` objects
+  no-octal-escape: ["error"] # disallow octal escape sequences in string literals
+  no-proto: ["error"] # disallow the use of the `__proto__` property -- it's deprecated, use Object.[get/set]PrototypeOf()
+  no-self-compare: ["error"] # disallow comparisons where both sides are exactly the same
+  no-throw-literal: ["error"] # disallow throwing literals as exceptions
+  no-unmodified-loop-condition: ["warn"] # disallow unmodified loop conditions
+  prefer-promise-reject-errors: ["error"] # require using Error objects as Promise rejection reasons
+  yoda: ["error", "never", { "exceptRange": true }] # require or disallow "Yoda" conditions
+
+  array-bracket-newline: ["error", "consistent"] # enforce consistent spacing inside array brackets
+  array-bracket-spacing: ["error"] # enforce consistent spacing inside array brackets
+  block-spacing: ["error"] # disallow or enforce spaces inside of blocks after opening block and before closing block
+  brace-style: ["error", "1tbs", { "allowSingleLine": true }] # enforce consistent brace style for blocks -- allowSingleLine allows single-line functions with {}.
+  camelcase: ["warn"] # enforce camelcase naming convention
+  comma-dangle: ["error", { "arrays": "always-multiline", "objects": "always-multiline", "imports": "only-multiline", "exports": "only-multiline", "functions": "only-multiline" }] # require or disallow trailing commas
+  comma-spacing: ["error"] # enforce consistent spacing before and after commas
+  comma-style: ["error"] # enforce consistent comma style
+  computed-property-spacing: ["error"] # enforce consistent spacing inside computed property brackets
+  # eol-last: ["error", "never"] # require or disallow newline at the end of files
+  func-call-spacing: ["error"] # require or disallow spacing between function identifiers and their invocations
+  func-name-matching: ["warn", { "considerPropertyDescriptor": true }] # require function names to match the name of the variable or property to which they are assigned
+  func-style: ["error", "declaration", { "allowArrowFunctions": true }] # enforce the consistent use of either `function` declarations or expressions
+  jsx-quotes: ["error", "prefer-double"] # enforce the consistent use of either double or single quotes in JSX attributes
+  key-spacing: ["error"] # enforce consistent spacing between keys and values in object literal properties
+  keyword-spacing: ["error"] # enforce consistent spacing before and after keywords
+  linebreak-style: ["error"] # enforce consistent linebreak style
+  max-len: ["warn", { "code": 150, "ignoreComments": true, "ignoreTemplateLiterals": true }] # enforce a maximum line length
+  new-cap: ["error"] # require constructor names to begin with a capital letter
+  new-parens: ["error"] # enforce or disallow parentheses when invoking a constructor with no arguments
+  no-array-constructor: ["error"] # disallow `Array` constructors
+  no-mixed-operators: ["error", { "groups": [["&&", "||"]] }]
+  no-multiple-empty-lines: ["error"] # disallow multiple empty lines
+  no-restricted-syntax: ["error", "WithStatement", "ForInStatement"]
+  no-tabs: ["error", { "allowIndentationTabs": true }] # disallow all tabs -- The indentation rule can worry about tabs in indentation.
+  no-trailing-spaces: ["error"] # disallow trailing whitespace at the end of lines
+  no-unneeded-ternary: ["error"] # disallow ternary operators when simpler alternatives exist
+  no-whitespace-before-property: ["error"] # disallow whitespace before properties
+  nonblock-statement-body-position: ["error"] # enforce the location of single-line statements
+  object-curly-spacing: ["error", "always"] # enforce consistent spacing inside braces
+  one-var: ["error", { "uninitialized": "consecutive", "initialized": "never" }] # enforce variables to be declared either together or separately in functions
+  operator-assignment: ["error"] # require or disallow assignment operator shorthand where possible
+  operator-linebreak: ["error"] # enforce consistent linebreak style for operators. -- Also enforces linebreaks for ternary operators
+  prefer-exponentiation-operator: ["error"] # disallow the use of `Math.pow` in favor of the `**` operator
+  prefer-object-spread: ["error"] # disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead.
+  quote-props: ["error", "as-needed", { "numbers": true }] # require quotes around object literal property names
+  semi-spacing: ["error"] # enforce consistent spacing before and after semicolons
+  space-before-function-paren: ["error", {"anonymous": "never", "named": "never", "asyncArrow": "always"}] # enforce consistent spacing before `function` definition opening parenthesis
+  space-in-parens: ["error"] # enforce consistent spacing inside parentheses
+  space-unary-ops: ["error"] # enforce consistent spacing before or after unary operators
+  spaced-comment: ["error"] # enforce consistent spacing after the `//` or `/*` in a comment
+  switch-colon-spacing: ["error"] # enforce spacing around colons of switch statements
+  template-tag-spacing: ["error"] # require or disallow spacing between template tags and their literals
+  arrow-parens: ["error", "as-needed"] # require parentheses around arrow function arguments
+  arrow-spacing: ["error"] # enforce consistent spacing before and after the arrow in arrow functions
+  generator-star-spacing: ["error", { "before": false, "after": true, "anonymous": "neither", "method": "neither" }] # enforce consistent spacing around `*` operators in generator functions
+  no-duplicate-imports: ["error", { "includeExports": true }] # disallow duplicate module imports
+  no-var: ["error"] # require `let` or `const` instead of `var`
+  object-shorthand: ["error"] # require or disallow method and property shorthand syntax for object literals
+  prefer-arrow-callback: ["error", { "allowUnboundThis": false }] # require using arrow functions for callbacks
+  # prefer-destructuring: ["warn", { "VariableDeclarator": { "object": true } }, { "enforceForRenamedProperties": false }] # require destructuring from arrays and/or objects
+  prefer-numeric-literals: ["error"] # disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals
+  prefer-rest-params: ["error"] # require rest parameters instead of `arguments`
+  prefer-spread: ["error"] # require spread operators instead of `.apply()`
+  rest-spread-spacing: ["error"] # enforce spacing between rest and spread operators and their expressions
+  symbol-description: ["warn"] # require symbol descriptions
+  template-curly-spacing: ["error", "never"] # require or disallow spacing around embedded expressions of template strings
+  yield-star-spacing: ["error"] # require or disallow spacing around the `*` in `yield*` expressions
+  no-constant-condition: ["error", { "checkLoops": false }] # disallow constant expressions in conditions
+  no-param-reassign: ["off"] # disallow reassigning `function` parameters
+  arrow-body-style: ["off"] # require braces around arrow function bodies
+  multiline-ternary: ["off"] # enforce newlines between operands of ternary expressions
+  no-empty: ["off", "double"] # disallow empty block statements
+  no-unreachable: ["off", "double"] # disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
+  no-unused-vars: ["off"] # disallow unused variables
+  require-yield: ["off"] # Disallow generator functions that do not have yield (require-yield)
+  eol-last: ["error", "always"]
+
+  jest/prefer-expect-assertions: ["off"] # Suggest using expect.assertions() OR expect.hasAssertions() (prefer-expect-assertions)
+  jest/consistent-test-it: ["off"] # Have control over test and it usages
+  jest/no-disabled-tests: ["off"] # Disallow disabled tests
