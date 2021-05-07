@@ -1,6 +1,6 @@
 {
   "name": "explicit-exceptions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Explicit-exceptions is a lightweight package that provides predictability and stability to the exception system of your program. It provides the same power that one might find in a functional language's exception system (like Rust or Haskell), but in a format that integrates well within the Javascript language.",
   "main": "index.js",
   "scripts": {
