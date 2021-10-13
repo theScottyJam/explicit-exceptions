@@ -1,6 +1,6 @@
 # Introduction
 
-Explicit-exceptions is a lightweight package that provides predictability and stability to the exception system of your program. It provides the same power that one might find in a functional language's exception system (like Rust or Haskell), but in a format that integrates well within the Javascript language. The concept is simple: require a caller to explicitly name each exception they except a particular function to provide. Here's what this looks like in practice:
+Explicit-exceptions is a lightweight package that provides predictability and stability to the exception system of your program. It provides the same power that one might find in a functional language's exception system (like Rust or Haskell), but in a format that integrates well within the Javascript language. The concept is simple: require a caller to explicitly name each exception they expect a particular function to provide. Here's what this looks like in practice:
 
 ```javascript
 const { Exception, wrap, unwrap } = require('explicit-exceptions')
